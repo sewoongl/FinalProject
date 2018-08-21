@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> myinfo </title>
+	
+<link rel="stylesheet" type="text/css" href="">
+<!--jquery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--부트스트랩-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--사이트 아이콘-->
+<link rel="shortcut icon" href="img/NAA.png">
+<!--메뉴 atc_head 영어부분 구글 폰트-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/myinfo.css">
+<script src="js/myinfo.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <container>
+        <header>
+            <h1>NBANIA.com</h1>
+        </header>
+        <div id="left"></div>
+        
+        <article>
+            <h1>My info</h1><hr>
+            
+            <div id="general">
+               
+                <div class="atc_form">
+                    <h3 class="gen_h3">Email</h3>
+                    <p id="email_p" class="gen_p"></p>
+                                       <h3 class="gen_h3">Name</h3>
+                    <p id="name_p" class="gen_p"></p>
+                                        <h3 class="gen_h3">Address</h3>
+                    <p id="post_code" class="gen_p"></p>
+                    <p id="address_1" class="gen_p"></p>
+                    <p id="address_2" class="gen_p"></p>
+                                        <h3 class="gen_h3">Phone</h3>
+                    <p id="phone" class="gen_p"></p>
+                                        <h3 class="gen_h3">Join date</h3>
+                    <p id="join_date" class="gen_p"></p>
+                </div>
+                
+                <input type="button" id="change_password" class="btn btn-default join_btns" value="비밀번호 변경">
+                <button type="button" id="back_home" class="btn btn-basic">홈으로</button>
+                <button type="button" id="leave_member" class="btn btn-danger">회원 탈퇴</button><hr>
+            </div>
+            
+            <div id="photo">
+                <div id="myinfo_img"></div>
+                <div id="img_upload">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input id="choose" type="file" name="profile" class="btn btn-default">
+                        <input id="img_submit" type="submit" value="사진 업로드" class="btn btn-default">
+                    </form>  
+                </div>
+                
+            </div>
+            
+
+            <div>
+
+            </div>
+            
+        </article>
+        
+        <div id="right"></div>
+    </container>
+    
+    <!-- 비밀번호 변경 -->
+    <div id="password_change" class="pw_nm_change">
+        <form>
+             <div class="pw-box-text">
+                 <h3>비밀번호 변경</h3><br>
+             </div>
+             <div class="input-group join-box-input">
+                 <input type="password" class="form-control" id="change_pw" name="pass" placeholder="변경하실 비밀번호를 입력하세요.">
+            </div>
+            <div class="join-btn-box">
+                <input type="submit" id="submit_pw" class="btn btn-default submit_change" value="변경">
+            </div>
+        </form>
+    </div>
+    
+    <!-- 회원탈퇴 다시 물어보기 -->
+    <div id="really_leave" class="pw_nm_change">
+        <form>
+             <div class="pw-box-text">
+                 <h3>정말 탈퇴 하시겠습니까?</h3><br>
+             </div>
+            <div class="join-btn-box">
+                <input type="submit" id="leave_confirm" class="btn btn-danger submit_change" value="탈퇴">
+            </div>
+        </form>
+    </div>
+        
+    <!-- 레이어 -->
+    <div id="layer"></div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- mybatis가 읽어드릴 대상이기에 무조건 doctype에 있어야함 -->
+<mapper namespace="sql">
+	
+	<!-- like 버튼 -->
+	<update id="likePlus" parameterType="HashMap">
+		update `like`
+			set `count` = count+1
+		where likeNo = 1
+	</update>
+	
+	<select id="likeOne" parameterType="HashMap" resultType="HashMap">
+		select * from `like`
+			where likeNo = 1 
+	</select>
+	
+	
+	<!-- 회원 가입 -->
+	<insert id="joinUser" parameterType="HashMap">
+		insert into `user` 
+			(email, name, `password`, regDate, `postcode`, address1, address2, phone) 
+		values 
+			(#{param.id}, #{param.name}, #{param.password}, DATE_FORMAT(NOW(),'%Y%m%d'), #{param.postcode}, #{param.address1}, #{param.address2}, #{param.phone})
+	</insert>
+	
+	<select id="idcheck" parameterType="HashMap" resultType="HashMap">
+      select * from `user`
+      	where email = #{id} and delYn ="N" limit 1
+	</select>
+	
+	
+	<!-- 세션 담기 -->
+	<select id="userSession" parameterType="HashMap" resultType="HashMap">
+		select * from user where email = #{param.id} and delYn ='N'
+	</select>
+	
+	<select id="joinSes" parameterType="HashMap" resultType="HashMap">
+		select * from user where email = #{id} and delYn ='N'
+	</select>
+	
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="HashMap" resultType="HashMap">
+		select * from user where email = #{id} and password = #{password} limit 1
+	</select>
+	
+	
+	<!-- 내정보 화면 -->
+	<update id="newPw" parameterType="HashMap">
+  		update `user`
+  			set password = #{password}
+  		where userNo = #{userNo}
+  	</update>
+  	
+  	<update id="leaveMember" parameterType="HashMap">
+  		update `user`
+  			set delYn = 'Y'
+  		where userNo = #{userNo}
+  	</update>
+	
+</mapper>

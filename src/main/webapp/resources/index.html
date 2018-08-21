@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Main </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--사이트 아이콘-->
+<link rel="shortcut icon" href="img/NAA.png">
+<!--아이콘 라이브러리-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--메뉴 atc_head 영어부분 구글 폰트-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<!--jquery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+<script src="js/index.js"></script>
+<script>
+    $(document).ready(function(){
+		
+    });
+</script>
+<style>
+
+</style>
+</head>
+
+<body>
+    <container>
+       
+        <header>
+            <div id="title"><h1>NBANIA.com</h1></div>
+            
+            <button id="nav" class="btn" style="background-color: black">
+                <div id="spans">
+                   <span id="first_span"></span>
+                   <span id="second_span"></span>
+                   <span></span>
+                </div>
+                <p id="menu">MENU</p>
+                <div id="dropdown" class="dropdown-content">
+                    <a href="#">Status</a>
+                    <a href="#">Leder</a>
+                    <a href="#">Board</a>
+                </div>
+            </button>
+                            
+            <div id="sign_join_reverse">
+                <button id="myinfo" class="btn btn-default" type="button" value="">MY INFO</button>
+                <button id="sign_out" class="btn btn-default" href="/web/logout" type="button" value="">SIGN OUT</button>
+                <button id="sign" class="btn btn-default" type="button" value="">SIGN IN</button>
+                <button id="join" class="btn btn-default" type="button" value="">JOIN</button>
+
+            </div>
+
+        </header>
+        
+        <article id="article_1">
+           <div id="arc1_img" class="hero-image"></div>
+            <div id="atc_txt_1">
+                <h1 id="atc_head_1">Team & Player Status</h1>
+                <p id="atc_head_p_1">NBA 팀별 선수 정보</p>
+                <p id="atc_little_head_1">INFO</p>
+                <div id="atc_discribe_div_1"><h3 id="atc_discribe_1">각 팀 선수들의 등번호, 포지션, 생일, 키 데이터를 정리 했습니다.</h3></div>
+                <div id="atc_btn_div_1"><button id="atc_head_p_size_1" class="btn btn_default">G O</button></div>
+            </div>
+            
+        </article>
+        
+        <article id="article_2">
+            <div id="arc2_img"></div>
+            <div class="atc_txt_23">
+                <h1 class="atc_head_23">Ranking of each event</h1>
+                <p class="atc_head_p_23">시즌별 Leader</p>
+                <p class="atc_little_head_23">LEADER</p>
+                <div class="atc_discribe_div_23"><h3 class="atc_discribe_23">2015~2017년간 Point, Assist, Steal<br>Top10을 분석, 시각화 하였습니다.</h3></div>
+                <div class="atc_btn_div_23"><button class="btn btn_default atc_head_p_size_23">Figure</button></div>                
+            </div>
+        </article>
+        
+        <article id="article_3">
+            <div id="arc3_img"></div>
+            <div class="atc_txt_23">
+                <h1 id="atc_head_3">Free bulletin board</h1>
+                <p id="atc_head_p_3">자유 게시판</p>
+                <p id="atc_little_head_3">BOARDER</p>
+                <div class="atc_discribe_div_23"><h3 id="atc_discribe_3">NBA 팬 들을 위한 다목적 자유 게시판 입니다.</h3></div>
+                <div class="atc_btn_div_23"><button class="btn btn_default atc_head_p_size_23">G O</button></div>                
+            </div>
+            <button id="like">
+                <p id="heart" class="fa fa-heart" aria-hidden="true"></p>
+                <p id="like_count"></p>
+            </button>
+        </article>
+        
+        <footer>
+            <div id="footer_left">
+                <p id="copyright">Copyright© 2018 SewoongLee All Rights Reserved</p>
+                <div id="reference" >
+                    <strong>Reference List</strong><br>
+                    <a id="ref_a1" class="ref_a" href="https://sportradar.us">https://sportradar.us/</a><br>
+                    <a id="ref_a2" class="ref_a" href="http://www.1freewallpapers.com/">http://www.1freewallpapers.com/</a><br>
+                    <a id="ref_a3" class="ref_a" href="https://wallpapercave.com/">https://wallpapercave.com/</a><br>
+                    <a id="ref_a4" class="ref_a" href="http://wilchesinglesdecimo.blogspot.com/">http://wilchesinglesdecimo.blogspot.com/</a><br>
+                    <a id="ref_a5" class="ref_a" href="https://www.reddit.com/r/nba/">https://www.reddit.com/r/nba/</a><br>
+                    <a id="ref_a6" class="ref_a" href="https://giphy.com/">https://giphy.com/</a><br>
+                </div>
+            </div>
+            <div id="footer_right"></div>
+        </footer>
+        
+        <!--  상단으로 가기 버튼 -->
+        <a id="move_top" href="#" ><img title="위로" src="img/Up_white_18dp.png"></a>
+
+    </container>
+    
+   <!-- 로그인 모달 -->
+    <div id="login-box">
+        <form>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="login-btn-box">
+            <input type="submit" id="loginBtn" class="btn btn-default" value="Login">
+            </div>
+        </form>
+    </div>
+    
+    <!-- 레이어 -->
+    <div id="layer"></div>
+    
+</body>
+    
+</html>

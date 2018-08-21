@@ -1,0 +1,526 @@
+    html, body{margin: 0; padding: 0;}
+/*헤더부분 시작*/
+body{background-color:black;}
+    header {
+        width: 100%;
+        height: 150px;
+        position: fixed;
+    }
+    .nav-up { top: -150px; // 헤더 높이와 같게 }
+    #title > h1 {
+        width: 300px;
+        height: 50px;
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 100px;
+        color: aliceblue;
+        display: inline-block;
+        float: left;
+    }
+    #nav {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 100px; 
+        display: inline-block;
+    }
+/*스팬 이벤트*/
+    #spans {
+        display: inline-block;
+        float: left;
+        width: 30%;
+        height: 90%;
+    }
+    span {
+        display: block;
+        margin-top: 3px;
+        width: 16px;
+        height: 1px;
+        background: aliceblue;
+        content: " ";
+        left: 0;
+    }
+    #first_span{
+        margin-top: 55%;
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: aliceblue;
+        content: " ";
+        left: 0;
+    }
+    #second_span{
+        -webkit-transition: width 1s;
+        transition: width 1s;        
+    }
+    #menu {
+        color: aliceblue;
+        display: block;
+        margin-top: 7px;
+        float: right;
+    }
+    #nav:hover {
+        box-shadow : 0px 0px 5px 2px aliceblue;
+        cursor: pointer;
+    }
+    #nav:hover > #spans > #second_span {
+        width: 30px;
+
+    }
+
+/*드롭 다운*/
+#dropdown {
+    margin-top: 45px;
+    margin-left: -43px;
+    border-radius: 5px;
+    display: none;
+}
+.dropdown-content {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+#nav:hover > #dropdown {
+    display: block;
+    -webkit-animation-name: slide_b;
+    -webkit-animation-duration: 0.5s;
+}
+
+@-webkit-keyframes slide_b {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+/*헤더 우측 부분*/
+    #sign_join_reverse{
+        width: 700px;
+        height: 50px;
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 100px; 
+        display: inline-block;
+        float: right;
+        text-align: right;
+        padding-right: 20px;
+    }
+    #sign_join_reverse button{
+        margin-top: 7px;
+    }
+    #sign_out, #myinfo{
+/*         display: inline-block; */
+        display: none;
+    }
+    #sign, #join{
+        color: black;
+    }
+    #reverse{
+        margin-right: 20px;
+        display: inline-block;
+        float: right;
+        color: black;
+    }
+/*모든 버튼 호버*/
+    button:hover{
+        box-shadow : 0px 0px 5px 2px aliceblue;
+        cursor: pointer;
+    }
+
+/*아티클 시작*/
+    #article_1, #article_2, #article_3{
+        width: 100%;
+        height: 1100px;
+    }
+#article_1{padding-top: 150px;}
+    #article_1 div h1, #article_1 div p , #article_2 div h1, #article_2 div p, #article_3 div h1, #article_3 div p {
+        margin: 0;
+    }
+/*아티클1 팀 선수 목록*/
+    #arc1_img{
+        width: 50%;
+        margin-top: 200px;
+        height: 800px;
+        float: right;
+        background-position: center top;
+        background-size: cover;
+        text-align: right;
+        background-image: url(../img/Lebron2_2.jpg);
+    }
+
+    .hero-image::after {
+        display: block;
+        position: relative;
+        background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0) 40%, black 100%);
+        background-image: -o-linear-gradient(right, rgba(255, 255, 255, 0) 40%, black 100%);
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 40%, black 100%);
+        height: 100%;
+        width: 100%;
+        content: '';
+    }
+    #atc_txt_1{
+        width: 50%;
+        height: 1000px;
+        text-align: center;
+    }
+    #atc_head_1{
+        padding-top: 30vh;
+        font-size: 70px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+        text-align: left;
+        color: aliceblue;
+        padding-left: 200px;
+    }
+    #atc_head_p_1{
+        padding-top: 5vh;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: left;
+        color: aliceblue; 
+        padding-left: 200px;
+    }
+    #atc_btn_div_1{
+        margin-top: 80px;
+        padding-left: 500px;
+        text-align: left;
+    }
+    #atc_head_p_size_1{
+        font-size: 20px;
+        text-align: center;
+        width: 150px;
+        height: 60px;
+        background-color: #ffffff;
+        opacity: 0.8;
+    }
+    #atc_little_head_1{
+        text-align: left;
+        color: #a1a1f0;
+        padding-top: 80px;
+        padding-right: 400px;
+        font-size: 20px;
+        padding-left: 200px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+    }
+    #atc_discribe_1{
+        text-align: left;
+        color: aliceblue;
+        padding-top: 50px;
+        padding-left: 190px;
+        font-size: 35px;
+/*        font-weight: bold;*/
+        font-style: italic;
+        display: inline-block;
+        width: 80%;
+    }
+    #atc_discribe_div_1{
+        text-align: left;
+    }
+/*분야별 랭킹 분석*/
+    #arc2_img{
+        width: 50%;
+        margin-top: 200px;
+        height: 800px;
+        float: left;
+        background-position: center;
+        background-size: cover;
+        text-align: right;
+        background-image: url(../img/dunk3.gif);
+    }
+    .atc_txt_23{
+        width: 100%;
+        height: 1000px;
+        text-align: center;
+    }
+    .atc_head_23{
+        padding-top: 30vh;
+        padding-right: 290px;
+        font-size: 70px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+        text-align: right;
+        color: aliceblue;
+    }
+    .atc_head_p_23{
+        padding-top: 5vh;
+        padding-right: 720px;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        text-align: right;
+        color: aliceblue; 
+        padding-left: 200px;
+    }
+    .atc_btn_div_23{
+        margin-top: 80px;
+        padding-left: 500px;
+        text-align: center;
+    }
+    .atc_head_p_size_23{
+        font-size: 20px;
+        text-align: center;
+        width: 150px;
+        height: 60px;
+        background-color: #ffffff;
+        opacity: 0.8;
+    }
+    .atc_little_head_23{
+        text-align: right;
+        color: #a1a1f0;
+        padding-top: 80px;
+        padding-right: 775px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+    }
+    .atc_discribe_23{
+        text-align: right;
+        color: aliceblue;
+        padding-top: 50px;
+        padding-right: 55px;
+        margin-right: 120px;
+        font-size: 35px;
+        display: inline-block;
+        font-style: italic;
+        text-align: left;
+        width: 38%;
+    }
+    .atc_discribe_div_23{
+        text-align: right;
+    }
+/*자유 게시판*/
+    #arc3_img{
+        width: 50%;
+        height: 1000px;
+        float: left;
+        background-position: left;
+        background-size: cover;
+        text-align: left;
+        background-image: url(../img/NBA1.jpg);
+    }
+    #atc_head_3{
+        padding-top: 30vh;
+        font-size: 70px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+        text-align: right;
+        color: aliceblue;
+        padding-right: 380px;
+    }
+    #atc_head_p_3{
+        padding-top: 5vh;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: right;
+        color: aliceblue;
+        font-style: italic;
+        padding-right: 695px;
+    }
+    #atc_little_head_3{
+        text-align: right;
+        color: #a1a1f0;
+        padding-top: 80px;
+        padding-right: 760px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+    }
+    #atc_discribe_3{
+        text-align: right;
+        color: aliceblue;
+        padding-top: 50px;
+        padding-right: px;
+        margin-right: 130px;
+        font-size: 35px;
+        display: inline-block;
+        font-style: italic;
+        width: 38%;
+    }
+
+/*  피규어  */
+    figure{
+        width: 100%;
+        height: 100%;
+    }
+
+
+/* 상단으로 가기 버튼*/
+#move_top {
+    position: fixed;
+    right: 2%;
+    bottom: 50px;
+    display: none;
+    z-index: 999;
+    color: aliceblue;
+}
+
+/* 좋아요 */
+#article_3{text-align: center;}
+#like{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 100px;
+}
+#like:hover {cursor: pointer;}
+#heart {
+    padding-top: 30px; 
+    color: red; 
+    font-size: 20px;
+}
+
+/* 풋 터 */
+    footer{
+        margin-top: 100px;
+        width: 100%;
+        height: 250px;
+    }
+    #footer_left{
+        float: left;
+        display: inline-block;
+        width: 100%;
+        height: 250px;
+        text-align: center;
+    }
+    footer:hover #copyright {opacity: 1;}
+    footer:hover #reference {opacity: 1;}
+    footer:hover strong {
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 1s;
+        visibility: visible;
+    }
+    footer:hover #ref_a1{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 1.4s;
+        text-decoration: none;
+    }
+    #ref_a1:hover {color: #a1a1f0;}
+    footer:hover #ref_a2{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 1.8s;
+        text-decoration: none;
+    }
+    #ref_a2:hover {color: #a1a1f0;}
+    footer:hover #ref_a3{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 2.2s;
+        text-decoration: none;
+    }
+    #ref_a3:hover {color: #a1a1f0;}
+    footer:hover #ref_a4{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 2.6s;
+        text-decoration: none;
+    }
+    #ref_a4:hover {color: #a1a1f0;}
+    footer:hover #ref_a5{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 3s;
+        text-decoration: none;
+    }
+    #ref_a5:hover {color: #a1a1f0;}
+    footer:hover #ref_a6{
+        opacity: 0.8;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 3.4s;
+        text-decoration: none;
+    }
+    #ref_a6:hover {color: #a1a1f0;}
+    #copyright {
+        opacity: 0.5;
+        color: aliceblue;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+    }
+    .ref_a{
+        margin-bottom: 0;
+        text-decoration: none;
+        color: aliceblue;
+        cursor: pointer;
+    }
+    #reference{
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Dancing Script', cursive;
+    }
+    @-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+        } 
+        100% {
+            opacity: 0.8;
+        }
+    }
+
+/*로그인 모달*/
+#login-box {
+    width: 30vw;
+    height: 180px;
+    min-width: 300px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #191919;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 2;
+    display: none;
+}
+#email, #password{
+    background-color: #464545;
+    color: aliceblue;
+}
+.login-btn-box {
+    padding-top: 10px;
+    width: 100%;
+    float: left;
+}
+
+.login-btn-box > input {
+    background-color: #343434;
+    width: 100%;
+    float: left;
+}
+#loginBtn{color: aliceblue;}
+
+/*레이어*/
+#layer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.7;
+    display: none;
+}
