@@ -41,8 +41,11 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 
+// 다큐먼트 레디 시작 !!!
 $(document).ready(function(){
+	
 
+	
 	//중복확인 버튼
 	$("#idck").on("click", function() {
 		var id = $("#usr").val();
@@ -51,18 +54,20 @@ $(document).ready(function(){
             type : 'POST',
             data : {"id":id},
             url : "/web/idcheck"
-        }).done(function(data){
+        }).done(function(data, e){
         	var status = JSON.parse(data).status;
         	console.log(status);
         	if(status == 0){
         		$("#usr").css("border","red solid 1px");
         		$("#usr").css("background-color","#faadad");
         		alert("이미 아이디가 있습니다.");
-        		$("#joinBtn").on("click", function(){
-        			alert("다른 아이디 사용해라 ㅡㅡ");
+        		$("#joinBtn").on("click", function(e){
+        			e.preventDefault(e);
+        			alert("다른 아이디를 사용하세요.");
+        			location.href = "join.html";
         		});
         		
-        	}else{
+        	}else if(status != 0){
         		alert("가입 가능한 아이디 입니다.");
         		$("#usr").css("border","#ccc solid 1px");
         		$("#usr").css("background-color","white");
@@ -113,17 +118,28 @@ $(document).ready(function(){
         	    			
         	    		});
         	    		location.href = "index.html";
-        	    		alert(name + "님 환영합니다.");
+        	    		alert('"' + name + '"' + "님 환영합니다.");
         	    	}
         	    	
         	    	
+        		});
+        	}else{
+        		// 중복확인 없이 가입버튼 눌렀을 경우
+        		$("#joinBtn").on("click", function(e){
+        			e.preventDefault(e);
+        			alert("이메일 중복확인이 필요 합니다.");
+        			location.href = "join.html";
         		});
         	}
         });
     });
 	
+	// 홈 아이콘 클릭시 index.html로 이동
+	$("#home").on("click", function(){
+		location.href = "index.html";
+	});
 	
-});
+});// 다큐먼트 레디 끄으읏!!!
 
 
 

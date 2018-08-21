@@ -33,23 +33,23 @@ public class userController {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		HashMap<String, Object> map = HttpUtil.getParamMap(req);
 		String id = map.get("id").toString();
-		System.out.println("1. 입력한 아이디값 : " + id);
+		logger.info("1. 입력한 아이디값 : " + id);
 		param.put("param", map);
 		param.put("sqlType", "sql.joinUser");
 		param.put("sql", "insert");
 		int status = (int) pdi.callDB(param);
-		System.out.println("2. insert 성공유무 : " + status);
+		logger.info("2. insert 성공유무 : " + status);
 		param.put("sqlType", "sql.userSession");
 		param.put("sql", "selectOne");
 		param.put("sesId", id);
-		System.out.println("현재 param 내용 : " + param);
+		logger.info("현재 param 내용 : " + param);
 		
 		if (status == 1) {
 			HashMap<String, Object> resultMap = (HashMap<String, Object>) pdi.callDB(param);
-			System.out.println("3. Login용 select문 결과 : " + resultMap);
+			logger.info("3. Login용 select문 결과 : " + resultMap);
 			ses.setAttribute("user", resultMap);
 		}else {
-			System.out.println("회원가입 실패");
+			logger.info("회원가입 실패");
 		}
 		
 		return HttpUtil.makeJsonView(map);
@@ -58,7 +58,7 @@ public class userController {
 	@RequestMapping("/idcheck")
     public void idcheck(HttpServletRequest req, HttpServletResponse res) {
         String id = req.getParameter("id");
-        System.out.println(id);
+        logger.info("중복 확인한 아이디 : " + id);
         HashMap<String, Object> map = new HashMap<String, Object>();
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("sqlType", "sql.idcheck");
@@ -91,7 +91,7 @@ public class userController {
 		HashMap<String, Object> param = HttpUtil.getParamMap(req);
 		param.put("sqlType", "sql.login");
 		param.put("sql", "selectOne");
-		System.out.println(param);
+		logger.info("로그인 파라미터 : " + param);
 		
 		HashMap<String, Object> resultMap = (HashMap<String, Object>) pdi.callDB(param);
 		
@@ -101,25 +101,26 @@ public class userController {
 		}else {
 			resultMap.put("status", FinallUtil.OK);
 		}
-		System.out.println(resultMap);
+		
+		logger.info("로그인 resultMap : " + resultMap);
 		session.setAttribute("user", resultMap);
 		return HttpUtil.makeJsonView(resultMap);
 	}
 	
 	@RequestMapping("/userCheck")	
 	public ModelAndView userCheck(HttpSession session) {
-		System.out.println("유저 체크 시작");
+		logger.info("유저 체크 시작");
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Object list = session.getAttribute("user");
 		map.put("list", list);
-		System.out.println("이것은 유저체크 맵이다 : " + map);
+		logger.info("이것은 유저체크 맵이다 : " + map);
 		return HttpUtil.makeJsonView(map);
 	}
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession ses) {
-		System.out.println("로그아웃되냐?");
 		ses.invalidate();
+		logger.info("로그아웃 성공");
 		return "redirect:/resources/index.html";
 	}
 	
@@ -134,38 +135,49 @@ public class userController {
 	}
 	
 	@RequestMapping("/changePw")
-	public HashMap<String, Object> changePw(HttpServletRequest req, HttpServletResponse res, HttpSession ses) {
-		System.out.println("비번변경 시작!");
+	public ModelAndView changePw(HttpServletRequest req, HttpServletResponse res, HttpSession ses) {
+		logger.info("비번변경 시작!");
 		HashMap<String, Object> param = HttpUtil.getParamMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		System.out.println("비번 변경 파라미터 : " + param);
+		logger.info("비번 변경 파라미터 : " + param);
+		
 		param.put("sqlType", "sql.newPw");
 		param.put("sql", "update");
-		pdi.callDB(param);
-		ses.invalidate();
 		
-		int status = (int) pdi.callDB(map);
+		int status = (int) pdi.callDB(param);
 		if(status == 1) {
-			logger.info("유저 탈퇴함.");
+			logger.info("비밀번호 변경 성공.");
 			ses.invalidate();
+			
 		}else if (status == 0) {
-			logger.info("유저 탈퇴 실패.");
+			logger.info("비밀번호 변경 실패.");
 		}
 		map.put("status", status);
-		
-		return map;
+
+		return HttpUtil.makeJsonView(map);
 	}
 	
 	@RequestMapping("/leaveMember")
-	public HashMap<String, Object> leaveMember(HttpServletRequest req, HttpServletResponse res, HttpSession ses) {
-		System.out.println("회원탈퇴 시작!");
+	public ModelAndView leaveMember(HttpServletRequest req, HttpServletResponse res, HttpSession ses) {
+		logger.info("회원탈퇴 시작!");
 		HashMap<String, Object> param = HttpUtil.getParamMap(req);
-		System.out.println("회원탈퇴 파라미터 : " + param);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("회원탈퇴 파라미터 : " + param);
+		
 		param.put("sqlType", "sql.leaveMember");
 		param.put("sql", "update");
-		pdi.callDB(param);
-		ses.invalidate();
-		return null;
+		
+		int status = (int) pdi.callDB(param);
+		if(status == 1) {
+			logger.info("회원탈퇴 성공.");
+			ses.invalidate();
+			
+		}else if (status == 0) {
+			logger.info("회원탈퇴 실패.");
+		}
+		map.put("status", status);
+
+		return HttpUtil.makeJsonView(map);
 	}
 }
 

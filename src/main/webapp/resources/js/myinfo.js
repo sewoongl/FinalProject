@@ -37,7 +37,6 @@ $(document).ready(function(){
 			$("#address_2").text(d.address2);
 			$("#phone").text(d.phone);
 			$("#join_date").text(d.regDate);
-			
 		}
 	    //비번 변경창 클릭
 	    $("#change_password").on("click", function(){
@@ -47,7 +46,8 @@ $(document).ready(function(){
 	    });
 	    
 	    //비번 변경
-	    $("#submit_pw").on("click", function(){
+	    $("#submit_pw").on("click", function(e){
+	    	e.preventDefault();
 	        var newPw = $("#change_pw").val();
 	        console.log("변경할 비밀번호 : " + newPw);
 	        $.ajax({
@@ -55,12 +55,13 @@ $(document).ready(function(){
 	        		url : "/web/changePw",
 	        		data : {"password" : newPw, "userNo" : d.userNo}
 	        }).done(function(data){
-	        	location.href = "index.html"
+	        	location.href = "index.html";
 	        });
 	    });
 	    
 	    //회원 탈퇴
-		$("#leave_confirm").on("click", function(){
+		$("#leave_confirm").on("click", function(e){
+			e.preventDefault();
 			console.log("삭제될 유저 번호 : " + d.userNo);
 			$.ajax({
 	    		type : "post",
@@ -77,6 +78,24 @@ $(document).ready(function(){
     
 }); //다큐멘트 레디 끄으읏!!!
 
+//세션 테스트
+//function seschk(){
+//	alert("세션 다시 체크");
+//	$.ajax({
+//		type : "post",
+//		url : "/web/infoData"
+//	}).done(function(data){
+//		var d = JSON.parse(data).user;
+//		console.log("세션 이메일 : " + d.email);
+//		console.log("세션 이름 : " + d.name);
+//		console.log("세션 우편번호 : " + d.postcode);
+//		console.log("세션 도로명주소 : " + d.address1);
+//		console.log("세션 상세주소 : " + d.address2);
+//		console.log("세션 전화번호 : " + d.phone);
+//		console.log("세션 가입일 : " + d.regDate);
+//		console.log("세션 비번 : " + d.password);
+//	});
+//}
 // 레이어 아웃 모듈
 function layerOut(){
     $("#layer").css("display", "none");

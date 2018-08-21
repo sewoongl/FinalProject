@@ -5,10 +5,15 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+
+import com.java.web.controller.userController;
 
 @Repository
 public class projectDao implements projectDaoInterface {
+	private static final Logger logger = LoggerFactory.getLogger(projectDao.class);
 	
 	@Resource(name="sqlSession")
 	SqlSession session;
@@ -19,8 +24,10 @@ public class projectDao implements projectDaoInterface {
 		int resultInt = 0;
 		String sql = param.get("sql").toString();
 		String sqlType = param.get("sqlType").toString();
-		System.out.println("sql : " + sql);
-		System.out.println("sqlType : " + sqlType);
+		
+		logger.info("sql : " + sql);
+		logger.info("sqlType : " + sqlType);
+		
 		if("selectOne".equals(sql)) {
 			return session.selectOne(sqlType, param);
 		}else if("selectList".equals(sql)) {
