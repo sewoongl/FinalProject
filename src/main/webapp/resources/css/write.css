@@ -1,0 +1,38 @@
+html, body{margin: 0; padding: 0;}
+header{
+	background-color: black;
+}
+/*아티클 시작*/
+#write_atc{
+    margin-left: calc((100vw - 800px)/2);
+    display: inline-block;
+}
+#write_title_con{
+    display: inline-block;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    width: 800px;
+}
+
+/*서머노트 에디터*/
+#summer_form{
+    display: inline-block;
+}
+
+#summernote{
+    display: inline-block;
+    margin-left: 200px;
+}
+
+/*작성 버튼*/
+#write_btn_con{
+    display: inline-block;
+    text-align: center;
+    margin-left: calc((100vw - 800px)/2); 
+}
+#write_btn{
+    width: 800px;
+    background-color: #464545;
+    color: aliceblue;
+}
+

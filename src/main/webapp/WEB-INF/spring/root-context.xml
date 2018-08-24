@@ -24,10 +24,12 @@
 		<constructor-arg name="sqlSessionFactory" ref="factoryBean"/>	<!-- 얘를 쓰기위해 위의 두개가 필요하다 참조(ref) datasource -> 참조 factorybean 한것이 session -->
 																		<!-- session이 동작될때 트렌젝션이 왔다갔다 한다. DAO가 세션을 동작시키는데 세션을 동작시키는 행위가 곧 트렌젝션이다.-->
 	</bean>
-	
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10485760" />
-		<property name="maxInMemorySize" value="104857600" />
-	</bean>	
-		
+		<property name="maxUploadSize" value="20971520" />
+		<!-- 20MB -->
+		<property name="maxInMemorySize" value="209715200" />
+		<!-- 200MB -->
+	</bean>		
 </beans>

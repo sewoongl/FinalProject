@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Board </title>
+<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/board.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<!--<link rel="stylesheet" type="text/css" href="css/main.css">-->
+<!--사이트 아이콘-->
+<link rel="shortcut icon" href="img/NAA.png">
+<!--아이콘 라이브러리-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--메뉴 atc_head 영어부분 구글 폰트-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+<!--jquery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/board.js"></script>
+</head>
+
+<body>
+    <container>
+        <header>
+            <div id="title"><h1>NBANIA.com</h1></div>
+            
+            <button id="nav" class="btn" style="background-color: black">
+                <div id="spans">
+                   <span id="first_span"></span>
+                   <span id="second_span"></span>
+                   <span id="third_span"></span>
+                </div>
+                <p id="menu">MENU</p>
+                <div id="dropdown" class="dropdown-content">
+                    <a href="#">Status</a>
+                    <a href="#">Leder</a>
+                    <a href="board.html">Board</a>
+                </div>
+            </button>
+                            
+            <div id="sign_join_reverse">
+                <button id="myinfo" class="btn btn-default" type="button" value="">MY INFO</button>
+                <button id="sign_out" class="btn btn-default" href="/web/logout" type="button" value="">SIGN OUT</button>
+                <button id="sign" class="btn btn-default" type="button" value="">SIGN IN</button>
+                <button id="join" class="btn btn-default" type="button" value="">JOIN</button>
+            </div>
+        </header>
+        
+        <article>
+            <div id="artcle_left">
+                
+            </div>
+            
+            <div id="artcle_right">
+                <div id="right_top">
+                    <h1>자유 게시판</h1>
+                    <p id="board_list_count">전체 100 건</p>
+                    <hr>
+                </div>
+                <table id="board">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>등록일</th>
+                            <th>조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                        <tr>
+                            <th>2</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                        <tr>
+                            <th>3</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                        <tr>
+                            <th>4</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                        <tr>
+                            <th>5</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                        <tr>
+                            <th>7</th>
+                            <th>안녕하세요</th>
+                            <th>이세웅</th>
+                            <th>20180822</th>
+                            <th>10</th>
+                        </tr><hr>
+                    </tbody>
+                </table>
+                
+                <div id="right_bot">
+                    <div id="right_bot_top">
+                        <div id="paging">
+                            <ul class="pagination">
+                                <li><a href="#">&lt;</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">7</a></li>
+                                <li><a href="#">8</a></li>
+                                <li><a href="#">9</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#">&gt;</a></li>
+                            </ul>
+                        </div>
+                        <div id="write">
+                            <button id="write_button" type="button" class="btn btn-default">글쓰기</button>
+                        </div>
+                    </div>
+                    
+                    <div id="seach">
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <footer>
+            <div id="footer_left">
+                <p id="copyright">Copyright© 2018 SewoongLee All Rights Reserved</p>
+                <div id="reference" >
+                    <strong>Reference List</strong><br>
+                    <a id="ref_a1" class="ref_a" href="https://sportradar.us">https://sportradar.us/</a><br>
+                    <a id="ref_a2" class="ref_a" href="http://www.1freewallpapers.com/">http://www.1freewallpapers.com/</a><br>
+                    <a id="ref_a3" class="ref_a" href="https://wallpapercave.com/">https://wallpapercave.com/</a><br>
+                    <a id="ref_a4" class="ref_a" href="http://wilchesinglesdecimo.blogspot.com/">http://wilchesinglesdecimo.blogspot.com/</a><br>
+                    <a id="ref_a5" class="ref_a" href="https://www.reddit.com/r/nba/">https://www.reddit.com/r/nba/</a><br>
+                    <a id="ref_a6" class="ref_a" href="https://giphy.com/">https://giphy.com/</a><br>
+                </div>
+            </div>
+        </footer>
+        
+    </container>
+    
+    <!-- 로그인 모달 -->
+    <div id="login-box">
+        <form>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="login-btn-box">
+            <input type="submit" id="loginBtn" class="btn btn-default" value="Login">
+            </div>
+        </form>
+    </div>
+    
+    <!-- 레이어 -->
+    <div id="layer"></div>
+</body>
+
+</html>

@@ -1,168 +1,194 @@
-       /*헤더와 화면 기본 세팅 부분*/
-        html, body, header > h1, hr, p{margin: 0; padding: 0;}
-        header{
-            width: 100%;
-            height: 50px;
-            background-color: black;
-            display: inline-block;
-            text-align: center;
-        }
-        header > h1 {
-            color: aliceblue;
-        }
-        #left{
-            width: 380.59px;
-            display: inline-block;
-            float: left;
-            height: calc(100vh - 50px);
-        }
-        #right{
-            width: 20%;
-            height: calc(100vh - 50px);
-            display: inline-block;
-            float: right; 
-        }
-        
-        /*아티클 부분 시작*/
-        article{
-            width: 60%;
-            height: auto;
-            margin-top: 50px;
-            display: inline-block;
-            }
-        article > h1 {
-            margin: 0;
-            display: inline-block;
-            margin-bottom: 10px;
-            font-size: 50px;
-        }
-        
-        /*제네럴 인포메이션*/
-        #general{
-            width: 70%;
-            height: auto;
-            display: inline-block;
-            float: left;
-        }
-        .atc_form{
-            width: 70%;
-            height: 600px;
-            margin-top: 20px;
-        }
-        .gen_h3{
-            width: calc(100% - 20px);
-            height: 20px;
-            display: inline-block;
-            float: left;
-            font-size: 30px;
-            margin-bottom: 20px;
-            margin-left: 20px;
-            font-family: 'Dancing Script', cursive;
-        }
-        .gen_p{
-            width: 100%;
-            height: 30px;
-            display: inline-block;
-            float: left;
-            margin-left: 20px;
-            font-weight: bold;
-            font-size: 17px;
-        }
+/*헤더와 화면 기본 세팅 부분*/
+html, body, header > h1, hr, p{margin: 0; padding: 0;}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    display: inline-block;
+    text-align: center;
+}
+header > h1 {
+    color: aliceblue;
+}
+#left{
+    width: 380.59px;
+    display: inline-block;
+    float: left;
+    height: calc(100vh - 50px);
+}
+#right{
+    width: 20%;
+    height: calc(100vh - 50px);
+    display: inline-block;
+    float: right; 
+}
 
-        /*하단 버튼들*/
-        #change_password{
-            width: calc(100% - 40px);
-            margin: 5px 20px;
-            background-color: #464545;
-            color: aliceblue;
-        }
-        #back_home{
-            width: calc(100% - 40px);
-            margin: 5px 20px;
-        }
-        #leave_member{
-            width: calc(100% - 40px);
-            margin: 5px 20px;
-        }
-        
-        /*사진*/
-        #photo{
-            width: 30%;
-            height: 450px;
-            display: inline-block;
-            float: left;
-            text-align: center;
-        }
-        #myinfo_img{
-            width: 200px;
-            height: 200px;
-            margin-left: calc((100% - 200px)/2);
-            margin-top: 50px;
-            display: inline-block;
-            float: left;
-            background-image: url(../img/user.png);
-            background-size: cover;
-        }
-        #img_upload{
-            width: 100%;
-            height: 90px;
-            display: inline-block;
-            margin-top: 20px;
-            text-align: center
-        }
-        #choose{
-            width: 260px;
-            margin-left: 20px;
-            margin-bottom: 10px;
-            background-color: #464545;
-            color: aliceblue;
-            margin-left: calc((100% - 260px)/2)
-        }
-        #img_submit{
-            width: 260px;
-        }
-        
-        /*비밀번호 변경 모달*/
-        .pw_nm_change {
-            width: 30%;
-            height: 220px;
-            padding: 20px;
-            background-color: white;
-            position: fixed;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            display:none;
-            z-index: 5001;
-        }
-        .pw-box-text > h3{
-            font-weight: bold;
-        }
-        #change_pw, .submit_change, #change_nm{
-            width: 535px;
-            margin-bottom: 5px;
-        }
-        .submit_change{
-            background-color: #464545;
-            color: aliceblue;
-        }
-        
-        /* 회원 탈퇴 모달 */
-        #really_leave{
-        	height: 170px;
-        	top: 40%;
-        }
+/*아티클 부분 시작*/
+article{
+    width: 60%;
+    height: auto;
+    margin-top: 50px;
+    display: inline-block;
+    }
+article > h1 {
+    margin: 0;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 50px;
+}
 
-        /*레이어*/
-        #layer {
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            top: 0; left: 0;
-            z-index: 1;
-            background-color: black;
-            opacity: 0.7;
-            display: none;
-        }
+/*제네럴 인포메이션*/
+#general{
+    width: 70%;
+    height: auto;
+    display: inline-block;
+    float: left;
+}
+.atc_form{
+    width: 70%;
+    height: 600px;
+    margin-top: 20px;
+}
+.gen_h3{
+    width: calc(100% - 20px);
+    height: 20px;
+    display: inline-block;
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+.gen_p{
+    width: 100%;
+    height: 30px;
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/*하단 버튼들*/
+#change_password{
+    width: calc(100% - 40px);
+    margin: 5px 20px;
+    background-color: #464545;
+    color: aliceblue;
+}
+#back_home{
+    width: calc(100% - 40px);
+    background-color: #464545;
+    margin: 5px 20px;
+    color: aliceblue;
+}
+#back_home:hover,#change_password:hover{
+	background-color: lightgrey;
+	color: #464545;
+	border-color: #464545;
+}
+#leave_member{
+    width: calc(100% - 40px);
+    background-color: #464545;
+    margin: 5px 20px;
+    color: aliceblue;
+}
+#leave_member:hover{
+	background-color: #d9534f;
+}
+
+/*사진*/
+#photo{
+    width: 30%;
+    height: 450px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+}
+#myinfo_img{
+    width: 200px;
+    height: 200px;
+    margin-left: calc((100% - 200px)/2);
+    display: inline-block;
+    float: left;
+    background-size: cover;
+}
+#default_img{
+    width: 200px;
+    height: 200px;
+    margin-left: calc((100% - 200px)/2);
+    margin-top: 50px;
+    display: inline-block;
+    float: left;
+    background-size: cover;
+	background-image: url(../img/user.png);
+	}
+#pro_img{
+	width:100%;
+	height:100%;
+	align: top;
+}
+#img_upload{
+    width: 100%;
+    height: 90px;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center
+}
+#file{
+    width: 260px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    background-color: #464545;
+    color: aliceblue;
+    margin-left: calc((100% - 260px)/2)
+}
+#img_submit{
+    width: 260px;
+}
+
+/*비밀번호 변경 모달*/
+.pw_nm_change {
+    width: 30%;
+    height: 220px;
+    padding: 20px;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display:none;
+    z-index: 5001;
+}
+.pw-box-text > h3{
+    font-weight: bold;
+}
+#change_pw, .submit_change, #change_nm{
+    width: 535px;
+    margin-bottom: 5px;
+}
+.submit_change{
+    background-color: #464545;
+    color: aliceblue;
+}
+
+/* 회원 탈퇴 모달 */
+#really_leave{
+	height: 170px;
+	top: 40%;
+}
+
+/*레이어*/
+#layer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.7;
+    display: none;
+}

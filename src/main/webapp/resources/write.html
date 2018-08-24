@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Write </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/write.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<!--<link rel="stylesheet" type="text/css" href="css/main.css">-->
+<!--사이트 아이콘-->
+<link rel="shortcut icon" href="img/NAA.png">
+<!--아이콘 라이브러리-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--jquery-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script src="js/common.js"></script>
+<script src="js/write.js"></script>
+</head>
+    <script>
+
+    </script>
+<body>
+    <div id="bodycon">
+       
+        <header>
+            <div id="title"><h1>NBANIA.com</h1></div>
+            
+            <button id="nav" class="btn" style="background-color: black">
+                <div id="spans">
+                   <span id="first_span"></span>
+                   <span id="second_span"></span>
+                   <span id="third_span"></span>
+                </div>
+                <p id="menu">MENU</p>
+                <div id="dropdown" class="dropdown-content">
+                    <a href="#">Status</a>
+                    <a href="#">Leder</a>
+                    <a href="board.html">Board</a>
+                </div>
+            </button>
+                            
+            <div id="sign_join_reverse">
+                <button id="myinfo" class="btn btn-default" type="button" value="">MY INFO</button>
+                <button id="sign_out" class="btn btn-default" href="/web/logout" type="button" value="">SIGN OUT</button>
+                <button id="sign" class="btn btn-default" type="button" value="">SIGN IN</button>
+                <button id="join" class="btn btn-default" type="button" value="">JOIN</button>
+            </div>
+        </header>
+        <article id="write_atc">
+            <div id="write_title_con">
+                <input id="write_title" name="write_title" type="text" class="form-control" placeholder="제목을 입력하세요.">
+            </div><br>
+            <form id="summer_form" method="post">
+                <textarea id="summernote" name="editordata"></textarea>
+            </form>
+        </article>
+        
+        <div id="write_btn_con">
+            <button id="write_btn" type="button" disabled class="btn btn-default" value="">작성</button>
+        </div>
+    </div>
+    
+    <!-- 로그인 모달 -->
+    <div id="login-box">
+        <form>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="login-btn-box">
+            <input type="submit" id="loginBtn" class="btn btn-default" value="Login">
+            </div>
+        </form>
+    </div>
+    
+    <!-- 레이어 -->
+    <div id="layer"></div>
+
+</body>
+
+</html>

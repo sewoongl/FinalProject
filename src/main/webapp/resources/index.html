@@ -6,6 +6,7 @@
 <title> Main </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <!--사이트 아이콘-->
 <link rel="shortcut icon" href="img/NAA.png">
 <!--아이콘 라이브러리-->
@@ -15,6 +16,7 @@
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
 <!--jquery-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
 <script src="js/index.js"></script>
 <script>
     $(document).ready(function(){
@@ -36,13 +38,13 @@
                 <div id="spans">
                    <span id="first_span"></span>
                    <span id="second_span"></span>
-                   <span></span>
+                   <span id="third_span"></span>
                 </div>
                 <p id="menu">MENU</p>
                 <div id="dropdown" class="dropdown-content">
                     <a href="#">Status</a>
                     <a href="#">Leder</a>
-                    <a href="#">Board</a>
+                    <a href="board.html">Board</a>
                 </div>
             </button>
                             
@@ -86,9 +88,9 @@
                 <p id="atc_head_p_3">자유 게시판</p>
                 <p id="atc_little_head_3">BOARDER</p>
                 <div class="atc_discribe_div_23"><h3 id="atc_discribe_3">NBA 팬 들을 위한 다목적 자유 게시판 입니다.</h3></div>
-                <div class="atc_btn_div_23"><button class="btn btn_default atc_head_p_size_23">G O</button></div>                
+                <div class="atc_btn_div_23"><button id="link_board" class="btn btn_default atc_head_p_size_23">G O</button></div>                
             </div>
-            <button id="like">
+            <button id="like" disabled>
                 <p id="heart" class="fa fa-heart" aria-hidden="true"></p>
                 <p id="like_count"></p>
             </button>

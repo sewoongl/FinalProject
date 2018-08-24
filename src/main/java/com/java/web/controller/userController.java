@@ -75,17 +75,6 @@ public class userController {
         HttpUtil.makeJsonWriter(res, map);
     }
 	
-	@RequestMapping("/joinSes")
-	public ModelAndView joinSes(HttpServletRequest req, HttpSession session) {
-		String id = req.getParameter("id");
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("id", id);
-		map.put("sql", "selectOne");
-		map.put("sqlType", "sql.joinSes");
-		map = (HashMap<String, Object>) pdi.callDB(map);
-		return HttpUtil.makeJsonView(map);
-	}
-	
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		HashMap<String, Object> param = HttpUtil.getParamMap(req);

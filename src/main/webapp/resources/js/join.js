@@ -44,10 +44,8 @@ function sample6_execDaumPostcode() {
 // 다큐먼트 레디 시작 !!!
 $(document).ready(function(){
 	
-
-	
 	//중복확인 버튼
-	$("#idck").on("click", function() {
+	$("#idck").off().on("click", function() {
 		var id = $("#usr").val();
 		console.log(id);
         $.ajax({
@@ -61,16 +59,13 @@ $(document).ready(function(){
         		$("#usr").css("border","red solid 1px");
         		$("#usr").css("background-color","#faadad");
         		alert("이미 아이디가 있습니다.");
-        		$("#joinBtn").on("click", function(e){
-        			e.preventDefault(e);
-        			alert("다른 아이디를 사용하세요.");
-        			location.href = "join.html";
-        		});
-        		
-        	}else if(status != 0){
+        	}else if(id == ""){
+        		alert("잘못된 아이디 입니다.");
+        	}else if(id != "" | status != 0){
         		alert("가입 가능한 아이디 입니다.");
         		$("#usr").css("border","#ccc solid 1px");
         		$("#usr").css("background-color","white");
+        		$("#joinBtn").removeAttr("disabled");
         		//가입 버튼 클릭 
         		$("#joinBtn").on("click", function(){
         			var id = $("#usr").val();
@@ -91,7 +86,6 @@ $(document).ready(function(){
         					"address2" : address2,
         					"phone" : phone
         	    	}
-        	    	console.log(d);
         	    	
         	    	if (d.id == ""){
         	    		alert("아이디를 입력하세요.");
@@ -120,8 +114,6 @@ $(document).ready(function(){
         	    		location.href = "index.html";
         	    		alert('"' + name + '"' + "님 환영합니다.");
         	    	}
-        	    	
-        	    	
         		});
         	}else{
         		// 중복확인 없이 가입버튼 눌렀을 경우

@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="css/myinfo.css">
 <script src="js/myinfo.js"></script>
     <style>
-
+		
     </style>
 </head>
 
@@ -50,18 +50,17 @@
                 
                 <input type="button" id="change_password" class="btn btn-default join_btns" value="비밀번호 변경">
                 <button type="button" id="back_home" class="btn btn-basic">홈으로</button>
-                <button type="button" id="leave_member" class="btn btn-danger">회원 탈퇴</button><hr>
+                <button type="button" id="leave_member" class="btn btn-basic">회원 탈퇴</button><hr>
             </div>
             
             <div id="photo">
-                <div id="myinfo_img"></div>
+                <div id="default_img" ><img id="myinfo_img" src=""></div>
                 <div id="img_upload">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <input id="choose" type="file" name="profile" class="btn btn-default">
+                    <form id="form" enctype="multipart/form-data">
+                        <input id="file" type="file" name="profile" multiple="multiple" class="btn btn-default">
                         <input id="img_submit" type="submit" value="사진 업로드" class="btn btn-default">
                     </form>  
                 </div>
-                
             </div>
             
 

@@ -16,20 +16,59 @@ $(document).ready(function(){
         layerOut();
     });
     
+    //프로필 이미지 
+    $("#img_submit").on("click", function(e){
+    	e.preventDefault();
+        $.ajax({
+        	type : "post",
+        	url : "/web/profileImg",
+        	data : new FormData($("#form")[0]),
+            contentType:false,
+            cache:false,
+            processData:false
+        }).done(function(data){
+        	console.log("aaaaaaaaa : "+data);
+        	
+        	var status = JSON.parse(data).status;
+        	var userNo = JSON.parse(data).userNo;
+        	if (status != 1){
+        		alert("로그인 하세요.");
+        	}else if (status == 1){
+        		alert("프로필 이미지가 변경 되었습니다.");
+        		
+				console.log("뉴데이터 : " +  userNo);
+				var newData = userNo;
+        		$.ajax({
+        	    	type : "post",
+        	    	url : "/web/newData",
+        	    	data : {"newData" : newData}
+        	    }).done(function(data){
+        	    	console.log("이미지를 가져와보자 : "+data);
+        	    	var dns = JSON.parse(data).dns;
+//        	    	console.log(d.user);
+        	    	$("#myinfo_img").attr("src", dns);
+        	    	location.href = "myinfo.html";
+        	    	return false;
+        	    });
+        		
+        	}else{
+        		alert("로그인 하세요.");
+        	}
+        });
+    });
+    
     //세션에 있는 유저 데이터 불러오기 
     $.ajax({
     	type : "post",
     	url : "/web/infoData"
     }).done(function(data){
+    	console.log("세션 유저 데이터 : "+data);
     	var d = JSON.parse(data).user;
-    	console.log("세션 이메일 : " + d.email);
-    	console.log("세션 이름 : " + d.name);
-    	console.log("세션 우편번호 : " + d.postcode);
-    	console.log("세션 도로명주소 : " + d.address1);
-    	console.log("세션 상세주소 : " + d.address2);
-    	console.log("세션 전화번호 : " + d.phone);
-    	console.log("세션 가입일 : " + d.regDate);
-		if(d != null){
+		
+    	if(d == null || d == ""){
+    		console.log("디폴트 이미지");
+    		return false;
+    	}else if(d != null){
 			$("#email_p").text(d.email);
 			$("#name_p").text(d.name);
 			$("#post_code").text(d.postcode);
@@ -37,7 +76,24 @@ $(document).ready(function(){
 			$("#address_2").text(d.address2);
 			$("#phone").text(d.phone);
 			$("#join_date").text(d.regDate);
+			if(d.dns != null){
+				$("#default_img").css({"background":"none"});
+				$("#myinfo_img").attr("src", d.dns);
+//				//이미지 업로드 후 바뀐 유저 정보
+//				console.log("뉴데이터 : " +  d.userNo);
+//				var newData = d.userNo;
+//			    $.ajax({
+//			    	type : "post",
+//			    	url : "/web/newData",
+//			    	data : {"newData" : newData}
+//			    }).done(function(data){
+//			    	console.log("이미지 업로드 후 바뀐 유저 정보 : " + data);
+//			    	$("#myinfo_img").attr("src", d.dns);
+//			    	
+//			    });
+			}
 		}
+
 	    //비번 변경창 클릭
 	    $("#change_password").on("click", function(){
 	        $("#layer").css("display", "block");
@@ -78,24 +134,7 @@ $(document).ready(function(){
     
 }); //다큐멘트 레디 끄으읏!!!
 
-//세션 테스트
-//function seschk(){
-//	alert("세션 다시 체크");
-//	$.ajax({
-//		type : "post",
-//		url : "/web/infoData"
-//	}).done(function(data){
-//		var d = JSON.parse(data).user;
-//		console.log("세션 이메일 : " + d.email);
-//		console.log("세션 이름 : " + d.name);
-//		console.log("세션 우편번호 : " + d.postcode);
-//		console.log("세션 도로명주소 : " + d.address1);
-//		console.log("세션 상세주소 : " + d.address2);
-//		console.log("세션 전화번호 : " + d.phone);
-//		console.log("세션 가입일 : " + d.regDate);
-//		console.log("세션 비번 : " + d.password);
-//	});
-//}
+
 // 레이어 아웃 모듈
 function layerOut(){
     $("#layer").css("display", "none");

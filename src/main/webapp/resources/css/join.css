@@ -9,9 +9,11 @@ body {width: 100%;}
     opacity: 1;
 }
 
+/* 컨테이너 */
 .join-con {
     font-family: 'Nanum Gothic';
     padding: 32px;
+    font-weight : bolder;
     max-width: 600px;
     min-width: 300px;
     margin: 100px auto 0 auto;
@@ -85,9 +87,9 @@ body {width: 100%;}
 	width: 50px;
     height: 50px;
 	z-index: 3;
-    position: fixed;
-    bottom: 70px;
-    right: 600px;
+    position: absolute;
+    bottom: 10%;
+    right: 30%;
     display: inline-block;
     font-size: 50px;
 }
