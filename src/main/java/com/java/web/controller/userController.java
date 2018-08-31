@@ -1,6 +1,7 @@
 package com.java.web.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -98,11 +99,13 @@ public class userController {
 	
 	@RequestMapping("/userCheck")	
 	public ModelAndView userCheck(HttpSession session) {
+		System.out.println("안녕?");
 		logger.info("유저 체크 시작");
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Object list = session.getAttribute("user");
+		logger.info("유저체크 리스트  : " + list);
 		map.put("list", list);
-		logger.info("이것은 유저체크 맵이다 : " + map);
+		logger.info("유저체크 맵 : " + map);
 		return HttpUtil.makeJsonView(map);
 	}
 	

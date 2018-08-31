@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title> Main </title>
+<!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
 <!--사이트 아이콘-->
 <link rel="shortcut icon" href="img/NAA.png">
 <!--아이콘 라이브러리-->
@@ -16,16 +15,12 @@
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
 <!--jquery-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- css파일들 -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<!-- JS 파일들 -->
 <script src="js/common.js"></script>
 <script src="js/index.js"></script>
-<script>
-    $(document).ready(function(){
-		
-    });
-</script>
-<style>
-
-</style>
 </head>
 
 <body>
@@ -42,20 +37,19 @@
                 </div>
                 <p id="menu">MENU</p>
                 <div id="dropdown" class="dropdown-content">
-                    <a href="#">Status</a>
-                    <a href="#">Leder</a>
+                    <a href="teams.html">Status</a>
+                    <a href="/HD">Analysis</a>
                     <a href="board.html">Board</a>
                 </div>
             </button>
                             
             <div id="sign_join_reverse">
+            	<img id="small_pf_img" src="">
                 <button id="myinfo" class="btn btn-default" type="button" value="">MY INFO</button>
                 <button id="sign_out" class="btn btn-default" href="/web/logout" type="button" value="">SIGN OUT</button>
                 <button id="sign" class="btn btn-default" type="button" value="">SIGN IN</button>
                 <button id="join" class="btn btn-default" type="button" value="">JOIN</button>
-
             </div>
-
         </header>
         
         <article id="article_1">
@@ -65,7 +59,7 @@
                 <p id="atc_head_p_1">NBA 팀별 선수 정보</p>
                 <p id="atc_little_head_1">INFO</p>
                 <div id="atc_discribe_div_1"><h3 id="atc_discribe_1">각 팀 선수들의 등번호, 포지션, 생일, 키 데이터를 정리 했습니다.</h3></div>
-                <div id="atc_btn_div_1"><button id="atc_head_p_size_1" class="btn btn_default">G O</button></div>
+                <div id="atc_btn_div_1"><button  id="link_status" id="atc_head_p_size_1" class="btn btn_default atc_head_p_size_23">G O</button></div>
             </div>
             
         </article>
@@ -74,10 +68,10 @@
             <div id="arc2_img"></div>
             <div class="atc_txt_23">
                 <h1 class="atc_head_23">Ranking of each event</h1>
-                <p class="atc_head_p_23">시즌별 Leader</p>
-                <p class="atc_little_head_23">LEADER</p>
+                <p class="atc_head_p_23">시즌별 Count</p>
+                <p class="atc_little_head_23">Analysis</p>
                 <div class="atc_discribe_div_23"><h3 class="atc_discribe_23">2015~2017년간 Point, Assist, Steal<br>Top10을 분석, 시각화 하였습니다.</h3></div>
-                <div class="atc_btn_div_23"><button class="btn btn_default atc_head_p_size_23">Figure</button></div>                
+                <div class="atc_btn_div_23"><button  id="link_leader" class="btn btn_default atc_head_p_size_23">Figure</button></div>                
             </div>
         </article>
         

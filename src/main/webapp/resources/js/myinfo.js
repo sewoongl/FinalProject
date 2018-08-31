@@ -1,7 +1,7 @@
 $(document).ready(function(){
     /*홈으로 가기*/
-   $("#back_home").on("click", function(){
-       location.href = "index.html"
+   $("#back_home").on("click", function(data){
+       location.href = "/"
    });
     
     //회원탈퇴 클릭 이벤트
@@ -19,9 +19,11 @@ $(document).ready(function(){
     //프로필 이미지 
     $("#img_submit").on("click", function(e){
     	e.preventDefault();
+    	
+//    	console.log($("#file").val());
         $.ajax({
         	type : "post",
-        	url : "/web/profileImg",
+        	url : "/profileImg",
         	data : new FormData($("#form")[0]),
             contentType:false,
             cache:false,
@@ -40,11 +42,12 @@ $(document).ready(function(){
 				var newData = userNo;
         		$.ajax({
         	    	type : "post",
-        	    	url : "/web/newData",
+        	    	url : "/newData",
         	    	data : {"newData" : newData}
         	    }).done(function(data){
         	    	console.log("이미지를 가져와보자 : "+data);
         	    	var dns = JSON.parse(data).dns;
+//        	    	URLEncoder.encode(dns, "UTF-8");
 //        	    	console.log(d.user);
         	    	$("#myinfo_img").attr("src", dns);
         	    	location.href = "myinfo.html";
@@ -60,7 +63,7 @@ $(document).ready(function(){
     //세션에 있는 유저 데이터 불러오기 
     $.ajax({
     	type : "post",
-    	url : "/web/infoData"
+    	url : "/infoData"
     }).done(function(data){
     	console.log("세션 유저 데이터 : "+data);
     	var d = JSON.parse(data).user;
@@ -79,18 +82,6 @@ $(document).ready(function(){
 			if(d.dns != null){
 				$("#default_img").css({"background":"none"});
 				$("#myinfo_img").attr("src", d.dns);
-//				//이미지 업로드 후 바뀐 유저 정보
-//				console.log("뉴데이터 : " +  d.userNo);
-//				var newData = d.userNo;
-//			    $.ajax({
-//			    	type : "post",
-//			    	url : "/web/newData",
-//			    	data : {"newData" : newData}
-//			    }).done(function(data){
-//			    	console.log("이미지 업로드 후 바뀐 유저 정보 : " + data);
-//			    	$("#myinfo_img").attr("src", d.dns);
-//			    	
-//			    });
 			}
 		}
 
@@ -108,10 +99,10 @@ $(document).ready(function(){
 	        console.log("변경할 비밀번호 : " + newPw);
 	        $.ajax({
 	        		type : "post",
-	        		url : "/web/changePw",
+	        		url : "/changePw",
 	        		data : {"password" : newPw, "userNo" : d.userNo}
 	        }).done(function(data){
-	        	location.href = "index.html";
+	        	location.href = "/";
 	        });
 	    });
 	    
@@ -121,10 +112,10 @@ $(document).ready(function(){
 			console.log("삭제될 유저 번호 : " + d.userNo);
 			$.ajax({
 	    		type : "post",
-	    		url : "/web/leaveMember",
+	    		url : "/leaveMember",
 	    		data : {"userNo" : d.userNo}
 	    	}).done(function(data) {
-	    		location.href = 'index.html';
+	    		location.href = '/';
 	    		alert("잘가라 즐거웠다.");
 	    	});
 	    });

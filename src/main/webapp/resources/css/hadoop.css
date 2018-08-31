@@ -1,0 +1,34 @@
+@charset "UTF-8";
+html, body {padding: 0; margin: 0;}
+h1 {text-align: center; padding: 20px 0;}
+#wrap {width: 80%; margin-left: 10%;}
+#dataList li {cursor: pointer;}
+#dataList li:hover {background-color: yellow;}
+#step2, #step3, #step4, #step5 {display: none;}
+#bar_body {width: 100%; background-color: green; margin-bottom: 50px;}
+#bar_div {width: 0%; height: 25px; background-color: red; text-align: center; font-weight: bold; color: white;}
+.btn1 {width: calc(50% - 3px); display: inline-block;}
+.btn2 {width: 100%;}
+.active {background-color: yellow;}
+#chart_body{
+	width: 900px; 
+	height:900px;
+}
+#chart_top{width: 900px; height:450px;display:inline-block;float:left;background-color: pink;}
+#chart_bottom{width: 900px; height:450px;display:inline-block;float:left;background-color: green;}
+#goalChart{width:450px;height:450px;display:inline-block;float:left;background-color:blue;}
+#reboundChart{width:450px;height:450px;display:inline-block;float:left;background-color:yellow;}
+#assistChart{width:450px;height:450px;display:inline-block;float:left;background-color:skyblue;}
+#stealChart{width:450px;height:450px;display:inline-block;float:left;background-color:pink;}
+
+	
+#coatLayer{
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+    background-image: url(img/coat.jpg);
+    background-size: cover;
+    opacity: 0.7;
+}

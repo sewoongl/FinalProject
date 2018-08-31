@@ -52,25 +52,27 @@ $(function() {
 
 //다큐먼트 레디 !!!!!
 $(document).ready(function(){
+	
 	//좋아요 갯수 
     $.ajax({
        	type : "post",
-       	url : "/web/likeOne"
+       	url : "/likeOne"
        }).done(function(data){
     	    var count = JSON.parse(data).likeOne.count;
 			$("#like_count").empty();
 			$("#like_count").append(count);
        });
+    
     //좋아요 버튼 클릭 이벤트
     $("#like").on("click", function(){
        randomize();
        $.ajax({
-       	type : "post",
-       	url : "/web/like"
+    	   type : "post",
+    	   url : "/like"
        }).done(function(data){
            $.ajax({
 			type : "post",
-			url : "/web/likeOne"
+			url : "/likeOne"
 			}).done(function(data){
 	    	    var count = JSON.parse(data).likeOne.count;
 				$("#like_count").empty();
@@ -79,6 +81,7 @@ $(document).ready(function(){
        });
     });
     
+
 }); //다큐먼트레디 끝!
 
 //좋아요 랜덤 색 변경 모듈

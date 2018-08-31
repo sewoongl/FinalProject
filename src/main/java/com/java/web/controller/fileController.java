@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +59,8 @@ public class fileController {
 				try {
 					byte[] bytes = files[i].getBytes();
 					String path = "F:/eclipse/workspace/FinalProject/src/main/webapp/resources/upload/" + fileNm;
-					String dns = "/web/resources/upload/" + fileNm;
+					String dns = "/resources/upload/" + fileNm;
+					URLEncoder.encode(dns, "UTF-8");
 					File f = new File(path);
 					OutputStream out = new FileOutputStream(f);
 					out.write(bytes);

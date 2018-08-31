@@ -1,0 +1,136 @@
+html{margin: 0;}
+body{background-color: #f1f1f1;}
+li{list-style:none;}
+#container{
+    width: 55%;
+    height: 90%;
+    background-color: #f1f1f1;
+    display:inline-block;
+    margin-top: 40px;
+    margin-left: 22.5%;
+    text-align: center;
+}
+.cover{
+    padding-left: 0;
+    width: 150px;
+    height: 150px;
+    margin: 20px 5px 0 5px;
+    display: inline-block;
+    text-align: center;
+    -webkit-animation-name: opa;
+    -webkit-animation-duration: 1s;
+}
+
+.teamEmblems{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float:left;
+    text-align: center;
+}
+.HDimg{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    margin-left: 25px;
+}
+.teamName{
+    width: 100px;
+    height: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 25px;
+    text-align: center;
+    display: inline-block;
+    float:left;
+    -webkit-animation-name: opa;
+    -webkit-animation-duration: 1.5s;
+}
+@-webkit-keyframes opa {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
+.cover:hover{
+	cursor:pointer;
+	transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+/* 차트 영역 */
+#goalChart, #reboundChart, #assistChart, #stealChart{
+	width: 500px;
+    height: 500px;
+    background-color: #9a9999;
+    border: 1px solid #9a9999;
+    border-radius:10px;
+    position:fixed;
+    z-index: 2;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+/* 차트 버튼 */
+#chartBtns{
+    position:fixed;
+    z-index: 2;
+    top: 73%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;	
+}
+
+/* 로딩중 */
+#loading{
+	width: 320px;
+    height: 250px;
+    position:fixed;
+    z-index: 3;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+#loadingMent{
+    position:fixed;
+    z-index: 3;
+    color: aliceblue;
+    top: calc(30% + 235px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;	
+}
+/* 배경색 */
+#backGround{
+	width:100vw;
+	height:100vw;
+	position:fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+}
+
+/*홈으로*/
+#home{
+	width: 50px;
+    height: 50px;
+	z-index: 3;
+    position: fixed;
+    top: 60px;
+    left: 18%;
+    display: inline-block;
+    font-size: 50px;
+    color: #464545;
+}
+#home:hover{
+	cursor:pointer;
+	transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}

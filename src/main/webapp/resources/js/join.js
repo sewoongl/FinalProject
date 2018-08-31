@@ -51,7 +51,7 @@ $(document).ready(function(){
         $.ajax({
             type : 'POST',
             data : {"id":id},
-            url : "/web/idcheck"
+            url : "/idcheck"
         }).done(function(data, e){
         	var status = JSON.parse(data).status;
         	console.log(status);
@@ -106,12 +106,12 @@ $(document).ready(function(){
         	    	}else {
         	    		$.ajax({
         	    			type : "post",
-        	    			url : "/web/join",
+        	    			url : "/join",
         	    			data : d
         	    		}).done(function(data){
         	    			
         	    		});
-        	    		location.href = "index.html";
+        	    		location.href = "/";
         	    		alert('"' + name + '"' + "님 환영합니다.");
         	    	}
         		});
@@ -126,10 +126,6 @@ $(document).ready(function(){
         });
     });
 	
-	// 홈 아이콘 클릭시 index.html로 이동
-	$("#home").on("click", function(){
-		location.href = "index.html";
-	});
 	
 });// 다큐먼트 레디 끄으읏!!!
 

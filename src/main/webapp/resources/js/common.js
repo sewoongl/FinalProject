@@ -1,22 +1,21 @@
 $(document).ready(function() {
-	
+	check();
     //세션 체크
-	$.ajax({
-		type: "post",
-		url: "/web/userCheck"
-	}).done(function(data){
-		var d = JSON.parse(data);
-		console.log("유저 세션 체크 데이터 : " + data);
-		var list = d.list;
-		if(list != null) {
-			iflogin();
-			layerOut();
-		}
-	});
+//	$.ajax({
+//		type: "post",
+//		url: "/userCheck"
+//	}).done(function(data){
+//		var list = JSON.parse(data).list;
+//		console.log("유저 체크 세션 : "+list);
+//		if(list != null) {
+//			iflogin();
+//			layerOut();
+//		}
+//	});
 	
 	//메인 타이틀 클릭시 index.html로 이동
 	$("#title").on("click", function(){
-		location.href = "index.html"
+		location.href = "/"
 	});
 	
     //sign_in 버튼 클릭 이벤트
@@ -45,6 +44,16 @@ $(document).ready(function() {
     $("#link_board").on("click", function(){
     	location.href="board.html";
     });
+    
+    //팀별 선수정보 GO버튼 클릭시 teams.html로 이동
+    $("#link_status").on("click", function(){
+    	location.href="teams.html";
+    });
+    
+    //분석 GO버튼 클릭시 hadoop.jsp로 이동
+    $("#link_leader").on("click", function(){
+    	location.href="/HD";
+    });
 	
 
 	
@@ -55,12 +64,13 @@ $(document).ready(function() {
  	   var password = $("#password").val();
  	    $.ajax({
  	    	type : "post",
- 	    	url : "/web/login",
+ 	    	url : "/login",
  	    	data : {"id" : id, "password" : password }
  	    }).done(function(data){
  	    	console.log("로그인 데이터 : " + data);
  	    	var d = JSON.parse(data);
  	    	var name = d.name;
+ 	    	var img = d.dns;
  	    	if(d.status!=0){
  	    		iflogin();
  	    		layerOut();
@@ -76,29 +86,35 @@ $(document).ready(function() {
     $("#sign_out").on("click", function(){
     	$.ajax({
     		type: "post",
-    		url: "/web/logout"
+    		url: "/logout"
     	}).done(function(data) {
     		location.href="index.html";
+    		alert("로그아웃 되었습니다.")
     	});
     });
+    
+	// 홈 아이콘 클릭시 index.html로 이동
+	$("#home").on("click", function(){
+		location.href = "/";
+	});
 	
 });  //다큐먼트 레디 끄으으슷스
 
+var flag = false;
+
 //세션 체크 함수
 var check = function(){
-	var flag = false;
 	$.ajax({
 		type: "post",
-		url: "/web/userCheck"
+		url: "/userCheck"
 	}).done(function(data){
 		var d = JSON.parse(data);
 		var list = d.list;
-		console.log("리스트 : "+list);
+		console.log("리스트 : "+list.userNo);
 		if(list != null){
 			flag = true;
 		}
 	});
-	return flag;
 }
 
 //레이어 아웃 모듈
@@ -106,6 +122,13 @@ function layerOut(){
     $("#layer").css("display", "none");
     $("container").css("opacity", "1");
     $("#login-box").css("display", "none");
+    $("#players").css("display", "none");
+    $("#contents_box").css("display", "none");
+    $("#goalChart").css("display", "none");
+    $("#reboundChart").css("display", "none");
+    $("#assistChart").css("display", "none");
+    $("#stealChart").css("display", "none");
+    $("#chartBtns").css("display","none");
 }
 
 //로그인 성공시

@@ -34,8 +34,8 @@
                 </div>
                 <p id="menu">MENU</p>
                 <div id="dropdown" class="dropdown-content">
-                    <a href="#">Status</a>
-                    <a href="#">Leder</a>
+                    <a href="teams.html">Status</a>
+                    <a href="/HD">Analysis</a>
                     <a href="board.html">Board</a>
                 </div>
             </button>
@@ -56,8 +56,8 @@
             <div id="artcle_right">
                 <div id="right_top">
                     <h1>자유 게시판</h1>
-                    <p id="board_list_count">전체 100 건</p>
-                    <hr>
+                    <div id="board_list_count">전체 </div>
+                    <p id="count_p"></p>
                 </div>
                 <table id="board">
                     <thead>
@@ -70,75 +70,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
-                        <tr>
-                            <th>2</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
-                        <tr>
-                            <th>3</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
-                        <tr>
-                            <th>4</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
-                        <tr>
-                            <th>5</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
-                        <tr>
-                            <th>7</th>
-                            <th>안녕하세요</th>
-                            <th>이세웅</th>
-                            <th>20180822</th>
-                            <th>10</th>
-                        </tr><hr>
+
                     </tbody>
                 </table>
                 
                 <div id="right_bot">
                     <div id="right_bot_top">
                         <div id="paging">
+<!--                                 <li class="num"><a href="#">&lt;</a></li> -->
                             <ul class="pagination">
-                                <li><a href="#">&lt;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
-                                <li><a href="#">&gt;</a></li>
+                                <!-- <li class="num"><a href="#">1</a></li>
+                                <li class="num"><a href="#">2</a></li>
+                                <li class="num"><a href="#">3</a></li>
+                                <li class="num"><a href="#">4</a></li>
+                                <li class="num"><a href="#">5</a></li>
+                                <li class="num"><a href="#">6</a></li>
+                                <li class="num"><a href="#">7</a></li>
+                                <li class="num"><a href="#">8</a></li>
+                                <li class="num"><a href="#">9</a></li>
+                                <li class="num"><a href="#">10</a></li> -->
                             </ul>
+<!--                                 <li class="num"><a href="#">&gt;</a></li> -->
                         </div>
                         <div id="write">
                             <button id="write_button" type="button" class="btn btn-default">글쓰기</button>
@@ -151,7 +103,7 @@
                 </div>
             </div>
         </article>
-
+		<div id=""></div>
         <footer>
             <div id="footer_left">
                 <p id="copyright">Copyright© 2018 SewoongLee All Rights Reserved</p>
@@ -184,6 +136,22 @@
             <input type="submit" id="loginBtn" class="btn btn-default" value="Login">
             </div>
         </form>
+    </div>
+    
+    <!-- 게시글 내용 모달 -->
+    <div id="contents_box">
+    	<div id="box_top">
+    		<div id="box_title"></div>
+    		<div id="box_reg"></div>
+    		<img id="box_img" src="">
+    		<div id="box_userNm"></div>
+    	</div>
+    	<div id="box_bottom">
+    		<div id="content"></div>
+    		<div>
+    			<button id="board_del" class="btn btn_default" type="button">글 삭제</button>
+    		</div>
+		</div>
     </div>
     
     <!-- 레이어 -->

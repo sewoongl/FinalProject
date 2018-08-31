@@ -1,0 +1,109 @@
+/*팀리스트 부르는 부분 */
+.uls{
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #f1f1f1;
+    -webkit-animation-name: opa;
+    -webkit-animation-duration: 1.5s;
+}
+@-webkit-keyframes opa {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
+.img{
+	width: 150px;
+	height: 100px;
+}
+li {
+    list-style:none;
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+    margin: 20px 20px 20px 20px;
+}
+.li_disc{
+    display: inline-block;
+    width: 150px;
+    max-width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.teamNm, .teamNk{
+    width: 150px;
+    height: 25px;
+    display: inline-block;
+    margin: 0;
+    float: left;
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+}
+li:hover, #home:hover{
+	cursor:pointer;
+	transition: all .2s ease-in-out;
+    transform: scale(1.1);
+	}
+
+/* 테이블 시작 모달*/
+#players{
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    background-color: #464545;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 2;
+    font-size: 20px;
+    display: none;
+}
+.name{
+    width: 30%;
+    text-align: center;
+    color: aliceblue;
+    border-bottom: 1px solid grey;
+}
+.jersey, .position{
+    width: 12%;
+    text-align: center;
+    color: aliceblue;
+    border-bottom: 1px solid grey;
+}
+.height, .weight{
+    width: 13%;
+    text-align: center;
+    color: aliceblue;
+    border-bottom: 1px solid grey;
+}
+.birth{
+    width: 20%;
+    text-align: center;
+    color: aliceblue;
+    border-bottom: 1px solid grey;
+}
+
+/*홈으로*/
+#home{
+	width: 50px;
+    height: 50px;
+	z-index: 3;
+    position: fixed;
+    top: 25px;
+    left: 12%;
+    display: inline-block;
+    font-size: 50px;
+    color: #464545;
+}
+
+
+
+
+

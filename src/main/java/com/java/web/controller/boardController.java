@@ -1,6 +1,7 @@
 package com.java.web.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.java.web.dao.projectDaoInterface;
+import com.java.web.util.Criteria;
 import com.java.web.util.HttpUtil;
 
 @Controller
@@ -45,7 +47,7 @@ public class boardController {
 			logger.info("글쓰기 정보 파람 값 : " + param);
 			pdi.callDB(param);
 			
-			int sesId = (int) userData.get("status");
+			int sesId = (int) userData.get("userNo");
 			param.put("sqlType", "sql.joinSes");
 			param.put("sql", "selectOne");
 			param.put("sesId", sesId);
@@ -61,5 +63,61 @@ public class boardController {
 		return HttpUtil.makeJsonView(map);
 	}
 	
+	@RequestMapping("/boardList")
+	public ModelAndView boardList(HttpSession ses) {
+		logger.info("게시글 리스트 불러오기 시작");
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		param.put("sqlType", "sql.boardList");
+		param.put("sql", "selectList");
+		List<HashMap<String, Object>> result = (List<HashMap<String, Object>>) pdi.callDB(param);
+		map.put("result", result);
+		param.put("sqlType", "sql.boardCount");
+		param.put("sql", "selectOne");
+		int resultC = (int) pdi.callDB(param);
+		map.put("resultc", resultC);
+		
+		
+		Criteria Criteria = new Criteria();
+		map.put("Criteria", Criteria.parserJs());
+		
+		
+		
+		
+		logger.info("게시글 리스트 리절트 : "+map);
+		return HttpUtil.makeJsonView(map);
+	}
 	
+	//게시글 클릭했을때 내용보여주기
+	@RequestMapping("/boardOne")
+	public ModelAndView boardList(HttpServletRequest req, HttpSession ses) {
+		HashMap<String, Object> logged = (HashMap<String, Object>) ses.getAttribute("user");
+		String loggedNum = logged.get("userNo").toString();
+		logger.info("로그인된 유저 정보 : "+loggedNum);
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String boardNo = req.getParameter("boardNo");
+		logger.info("가져온 게시글 번호 :" + boardNo);
+		param.put("sqlType", "sql.boardOne");
+		param.put("sql", "selectOne");
+		param.put("boardNo", boardNo);
+		map.put("getOne", pdi.callDB(param));
+		map.put("loggedNum",loggedNum);
+		logger.info("가져온 boardOne : "+map);
+		return HttpUtil.makeJsonView(map);
+	}
+	
+	//게시글 삭제
+	@RequestMapping("/boardDel")
+	public ModelAndView boardDel(HttpServletRequest req, HttpSession ses) {
+		logger.info("게시글 삭제 시작");
+		String boardNo = req.getParameter("boardNo");
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param.put("sqlType", "sql.boardDel");
+		param.put("sql", "update");
+		param.put("boardNo", boardNo);
+		pdi.callDB(param);
+		logger.info("게시글 삭제 완료");
+		return HttpUtil.makeJsonView(param);
+	}
 }

@@ -29,7 +29,7 @@ $(document).ready(function() {
     	console.log("내용 : " + contents);
     	$.ajax({
  	    	type : "post",
- 	    	url : "/web/boardWrite",
+ 	    	url : "/boardWrite",
  	    	data : {"title" : title, "contents" : contents}
  	    }).done(function(data){
  	    	alert("글작성이 완료 되었습니다.");

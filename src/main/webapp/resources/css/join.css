@@ -86,11 +86,12 @@ body {width: 100%;}
 #home{
 	width: 50px;
     height: 50px;
-	z-index: 3;
-    position: absolute;
-    bottom: 10%;
-    right: 30%;
+	float: left;
     display: inline-block;
     font-size: 50px;
 }
-#home:hover {cursor: pointer;}
+#home:hover {
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
