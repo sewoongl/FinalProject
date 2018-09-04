@@ -90,10 +90,10 @@ public class userController {
 			resultMap.put("status", FinallUtil.NO);
 		}else {
 			resultMap.put("status", FinallUtil.OK);
+			logger.info("로그인 resultMap : " + resultMap);
+			session.setAttribute("user", resultMap);
 		}
 		
-		logger.info("로그인 resultMap : " + resultMap);
-		session.setAttribute("user", resultMap);
 		return HttpUtil.makeJsonView(resultMap);
 	}
 	
@@ -103,6 +103,7 @@ public class userController {
 		logger.info("유저 체크 시작");
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Object list = session.getAttribute("user");
+		System.out.println(session.getAttribute("user"));
 		logger.info("유저체크 리스트  : " + list);
 		map.put("list", list);
 		logger.info("유저체크 맵 : " + map);

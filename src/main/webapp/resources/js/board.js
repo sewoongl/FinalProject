@@ -20,7 +20,6 @@ $(document).ready(function(){
 			html += "<td id='board_"+ d[i].boardNo +"'></td>";
 			html += "</tr>";
 			$("tbody").append(html);
-			boardListClick();
 		}
 		
 		//페이징 이동 버튼 
@@ -39,9 +38,9 @@ $(document).ready(function(){
 		//뒤로 버튼
 		$(document).on("click",".first span", function(){
 			console.log("돌아가기 시작");
-			var firstP = $(".num span").eq(1).text();
+			var firstP = $(".num span").eq(0).text();
 			$(".pagination").empty();
-			var fp = Number(firstP) - 6;
+			var fp = Number(firstP) - 5;
 			console.log("돌아가는 첫페이지 : "+fp);
 			$(".pagination").append("<li class='first'><span>&lt;</span></li>");
 			for(var np = fp; np < fp+5; np++){
@@ -123,7 +122,7 @@ $(document).ready(function(){
 
 		
 		
-		
+		boardListClick();
 		//게시글 클릭시 이벤트 
 		function boardListClick(){
 			$("tr>td:nth-child(2)").on("click", function(){
@@ -141,13 +140,15 @@ $(document).ready(function(){
 					var delUN = dt.userNo;
 					console.log("보드 유저번호 : "+boardNo);
 					console.log("로그인된 유저번호  : "+loggedNum);
-					$("#board_del").on("click", function(){
-						if(loggedNum == delUN){
+					if(loggedNum == delUN){
+						$("#board_del").removeAttr("disabled");
+						$("#board_del").on("click", function(){
 							boardDele(boardNo);
-						}
-						
-					});
-					
+						});
+						$("#layer").on("click",function(){
+							$("#board_del").prop("disabled", true);
+						});
+					}
 					$("#box_title").text(dt.title);
 					$("#box_img").attr("src", dt.dns);
 					$("#box_userNm").text(dt.name);
@@ -158,13 +159,14 @@ $(document).ready(function(){
 		
 	});// 게시글 에이젝스 끝
 	
+	//게시글 삭제
 	function boardDele(boardNo){
 		$.ajax({
 			type: "post",
 			url: "/boardDel",
 			data:{"boardNo": boardNo}
 		}).done(function(data){
-//			alert("게시글이 삭제되었 습니다.");
+			location.reload();
 		});
 	}
 	

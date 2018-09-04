@@ -3,7 +3,11 @@ $(document).ready(function(){
    $("#back_home").on("click", function(data){
        location.href = "/"
    });
-    
+   $("#myinfo_header").on("click", function(data){
+       location.href = "/"
+   }); 
+   
+   
     //회원탈퇴 클릭 이벤트
     $("#leave_member").on("click", function(){
         $("#layer").css("display", "block");
@@ -102,6 +106,7 @@ $(document).ready(function(){
 	        		url : "/changePw",
 	        		data : {"password" : newPw, "userNo" : d.userNo}
 	        }).done(function(data){
+	        	alert("비밀번호가 변경되었습니다.");
 	        	location.href = "/";
 	        });
 	    });

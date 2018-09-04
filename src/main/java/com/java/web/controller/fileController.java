@@ -38,8 +38,6 @@ public class fileController {
 	public ModelAndView profileImg(@RequestParam("profile") MultipartFile[] files, HttpServletResponse res, HttpServletRequest req, HttpSession ses) {
 		logger.info("이미지 추가 시작");
 		HashMap<String, Object> param = HttpUtil.getParamMap(req);
-		
-		System.out.println("현섭 파람 : "+param);
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Object session = ses.getAttribute("user");
 		System.out.println("file ; " + files);
@@ -58,8 +56,10 @@ public class fileController {
 				System.out.println("2");
 				try {
 					byte[] bytes = files[i].getBytes();
-					String path = "F:/eclipse/workspace/FinalProject/src/main/webapp/resources/upload/" + fileNm;
-					String dns = "/resources/upload/" + fileNm;
+//					String path = "F:/eclipse/workspace/FinalProject/src/main/webapp/resources/upload/" + fileNm; //이클립스 경로
+//					String dns = "/resources/upload/" + fileNm; //이클립스 경로
+					String path = req.getSession().getServletContext().getRealPath("/") + "/resources/upload/"+fileNm;
+					String dns = "http://gudi.iptime.org:10700/resources/upload/" + fileNm;
 					URLEncoder.encode(dns, "UTF-8");
 					File f = new File(path);
 					OutputStream out = new FileOutputStream(f);

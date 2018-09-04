@@ -37,13 +37,13 @@
 	</select>
 	
 	<select id="joinSes" parameterType="HashMap" resultType="HashMap">
-		select * from user where userNo = #{sesId} and delYn ='N'
+		select * from user where userNo = #{userNo} and delYn ='N'
 	</select>
 	
 	
 	<!-- 로그인 -->
 	<select id="login" parameterType="HashMap" resultType="HashMap">
-		select * from user where email = #{id} and password = #{password} limit 1
+		select * from user where email = #{id} and password = #{password} and delYn ='N' limit 1 ;
 	</select>
 	
 	<select id="check" parameterType="HashMap" resultType="HashMap">
@@ -85,6 +85,13 @@
 	</select>
 	
   	<select id="boardOne" resultType="HashMap" parameterType="HashMap">
+		select b.boardNo, b.userNo, b.title, b.contents ,b.regDate, b.delYn, u.name, u.dns 
+			from board as b 
+			left outer join user as u
+			on (b.userNo = u.userNo)
+			where boardNo = #{boardNo} limit 1
+	</select>
+  	<select id="boardOneN" resultType="HashMap" parameterType="HashMap">
 		select b.boardNo, b.userNo, b.title, b.contents ,b.regDate, b.delYn, u.name, u.dns 
 			from board as b 
 			left outer join user as u

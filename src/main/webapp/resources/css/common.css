@@ -187,6 +187,7 @@ button:hover{
 
 /* 풋 터 */
 footer{
+	margin-top: 50px;
     width: 100%;
     height: 250px;
     display: inline-block;

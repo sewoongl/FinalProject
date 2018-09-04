@@ -7,8 +7,11 @@ header{
     display: inline-block;
     text-align: center;
 }
-header > h1 {
+#myinfo_header {
     color: aliceblue;
+}
+#myinfo_header:hover{
+	cursor: pointer;
 }
 #left{
     width: 380.59px;

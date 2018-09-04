@@ -1,17 +1,17 @@
 $(document).ready(function() {
 	check();
     //세션 체크
-//	$.ajax({
-//		type: "post",
-//		url: "/userCheck"
-//	}).done(function(data){
-//		var list = JSON.parse(data).list;
-//		console.log("유저 체크 세션 : "+list);
-//		if(list != null) {
-//			iflogin();
-//			layerOut();
-//		}
-//	});
+	$.ajax({
+		type: "post",
+		url: "/userCheck"
+	}).done(function(data){
+		var list = JSON.parse(data).list;
+		console.log("유저 체크 세션 : "+list);
+		if(list != null) {
+			iflogin();
+			layerOut();
+		}
+	});
 	
 	//메인 타이틀 클릭시 index.html로 이동
 	$("#title").on("click", function(){
@@ -100,20 +100,24 @@ $(document).ready(function() {
 	
 });  //다큐먼트 레디 끄으으슷스
 
-var flag = false;
 
 //세션 체크 함수
 var check = function(){
+	var flag = false;
+	
 	$.ajax({
 		type: "post",
 		url: "/userCheck"
 	}).done(function(data){
 		var d = JSON.parse(data);
 		var list = d.list;
-		console.log("리스트 : "+list.userNo);
+		console.log("유저체크 들어옴 : "+d);
 		if(list != null){
 			flag = true;
+		}else{
+			flag;
 		}
+		return flag;
 	});
 }
 

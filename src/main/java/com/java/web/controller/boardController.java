@@ -91,19 +91,28 @@ public class boardController {
 	//게시글 클릭했을때 내용보여주기
 	@RequestMapping("/boardOne")
 	public ModelAndView boardList(HttpServletRequest req, HttpSession ses) {
-		HashMap<String, Object> logged = (HashMap<String, Object>) ses.getAttribute("user");
-		String loggedNum = logged.get("userNo").toString();
-		logger.info("로그인된 유저 정보 : "+loggedNum);
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, Object> logged = (HashMap<String, Object>) ses.getAttribute("user");
 		String boardNo = req.getParameter("boardNo");
-		logger.info("가져온 게시글 번호 :" + boardNo);
-		param.put("sqlType", "sql.boardOne");
-		param.put("sql", "selectOne");
-		param.put("boardNo", boardNo);
-		map.put("getOne", pdi.callDB(param));
-		map.put("loggedNum",loggedNum);
-		logger.info("가져온 boardOne : "+map);
+		if(logged != null){
+			String loggedNum = logged.get("userNo").toString();
+			logger.info("로그인된 유저 정보 : "+loggedNum);
+			logger.info("가져온 게시글 번호 :" + boardNo);
+			param.put("sqlType", "sql.boardOne");
+			param.put("sql", "selectOne");
+			param.put("boardNo", boardNo);
+			map.put("getOne", pdi.callDB(param));
+			map.put("loggedNum",loggedNum);
+			logger.info("가져온 boardOne : "+map);
+		}else{
+			logger.info("가져온 게시글 번호 :" + boardNo);
+			param.put("sqlType", "sql.boardOne");
+			param.put("sql", "selectOne");
+			param.put("boardNo", boardNo);
+			map.put("getOne", pdi.callDB(param));
+			logger.info("가져온 boardOne : "+map);
+		}
 		return HttpUtil.makeJsonView(map);
 	}
 	

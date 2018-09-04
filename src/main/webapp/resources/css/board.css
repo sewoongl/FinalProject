@@ -18,6 +18,14 @@ article{
     background-size: cover;
     float: left;
 }
+#artcle_left::after {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 40%, black 100%);
+    height: 100%;
+    width: 100%;
+    content: '';
+}
 #artcle_right{
     width: 80%;
     height: calc(100vh - 400px);
@@ -79,6 +87,7 @@ tbody>tr>td:nth-child(4){ width: 10%;display: inline-block;text-align: center;}
 tbody>tr>td:nth-child(5){ width: 10%;display: inline-block;text-align: center;}
 tbody>tr>td:nth-child(2):hover {cursor:pointer; font-weight: bold; background-color:#cbcbcb;}
 .tr{height:42px;max-height: 42px;}
+
 /*글쓰기버튼, 페이지 부분*/
 #right_bot{
     width: 100%;
@@ -99,6 +108,11 @@ tbody>tr>td:nth-child(2):hover {cursor:pointer; font-weight: bold; background-co
 #write_button{
     display: none;
     margin-top: 20px;
+}
+span:hover{
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+    transform: scale(1.1);
 }
 
 /*검색 하기 부분*/
@@ -154,7 +168,6 @@ tbody>tr>td:nth-child(2):hover {cursor:pointer; font-weight: bold; background-co
     height: 100px;
     display: inline-block;
     float: left;
-    display:none;
 }
 #box_userNm{
     width: 114px;

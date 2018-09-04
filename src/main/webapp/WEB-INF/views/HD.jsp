@@ -49,7 +49,7 @@
     <!-- 홈버튼 -->
     <i id="home" class="fa fa-home" title="홈으로" aria-hidden="true"></i>
     <!-- 로딩중 -->
-    <img id="loading" src="resources/img/loading1.gif">
+    <img id="loading" src="resources/img/Double Ring_200px.svg">
     <h1 id="loadingMent">데이터를 읽는 중 입니다</h1>
 </body>
 </html>

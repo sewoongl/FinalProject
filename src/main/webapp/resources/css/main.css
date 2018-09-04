@@ -232,9 +232,9 @@ figure{
     z-index: 999;
     color: aliceblue;
 }
+#article_3{text-align: center;}
 
 /* 좋아요 */
-#article_3{text-align: center;}
 #like{
     width: 100px;
     height: 100px;
@@ -245,8 +245,9 @@ figure{
 }
 #like:hover {cursor: pointer;}
 #heart {
-    padding-top: 30px; 
+    padding-top: 20px;
     color: red; 
-    font-size: 20px;
+    font-size: 25px;
 }
+#like_count{color:aliceblue;}
 
